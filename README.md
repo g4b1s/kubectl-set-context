@@ -2,7 +2,7 @@
 
 You need to install dialog 
 
-next clone repo and change your kube config file libe example config_example
+next clone repo and change your kube config file like example config_example
 
 ## RHEL
 ```shell
