@@ -1,0 +1,21 @@
+  local cluster=""
+  local options=""
+  local red='\033[0;31m'
+  local nc='\033[0m'
+
+  if [ $# -gt 0 ]; then
+    cluster=$1
+  else
+    for context in $(kubectl config get-contexts | tr -d '*' | tail -n +2 | awk '{print $1}' | sort); do
+      options="${options} ${context} ''"
+    done
+    cluster=$(dialog --stdout --menu 'Choose Kubernetes Cluster' 0 0 0 ${options})
+    clear
+  fi
+
+  kubectl config use-context $cluster >/dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    echo -e "${red}cluster ${cluster} not found${nc}"
+  else
+    echo "cluster ${cluster} set"
+  fi
