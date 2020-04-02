@@ -2,8 +2,6 @@
 
 You need to install dialog 
 
-next clone repo and change your kube config file like example config_example
-
 ## RHEL
 ```shell
 sudo dnf install dialog
@@ -16,14 +14,18 @@ sudo apt-get install dialog
 ```shell
 pacman -S dialog
 ```
+## OSX mac
+```shell
+brew install dialog
+```
+
+# Use
 
 move to any folder in your path
 ```shell
 mv kubectl-set-context /usr/local/bin
 ```
 
-
-# Use
 
 ```shell
 kubectl-set-context
